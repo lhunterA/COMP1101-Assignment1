@@ -65,6 +65,17 @@ public class ElectionResult
         setElectedCandidate (electedCandidate);
     }
 
+
+    /**
+     * Constructor to get the voter turnout percentage
+     * @param province
+     * @param voterTurnoutPercent
+     */
+    public ElectionResult(String province, double voterTurnoutPercent) {
+        setProvince (province);
+        setVoterTurnoutPercent (voterTurnoutPercent);
+    }
+
     public int getId() {
         return id;
     }
@@ -176,4 +187,13 @@ public class ElectionResult
     public void setElectedCandidate(String electedCandidate) {
         this.electedCandidate = electedCandidate;
     }
+
+
+
+    public String toString()
+    {
+        return String.format("Results: %s %s %n", electoralDistrictName, population);
+    }
+
+
 }
