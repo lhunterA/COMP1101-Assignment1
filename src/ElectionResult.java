@@ -192,8 +192,7 @@ public class ElectionResult
 
     public String toString()
     {
-        return String.format("Results: %s %s %n", electoralDistrictName, population);
+        return String.format("Results: %s %.2f %n", province, voterTurnoutPercent);
     }
-
 
 }

@@ -90,15 +90,17 @@ public class DBUtility
 
             statement = connection.createStatement();
 
-            resultSet = statement.executeQuery("SELECT Province, avg(VoterTurnoutPercent) FROM elections_results GROUP BY Province"); //retrieve info from the database
+            resultSet = statement.executeQuery("SELECT Province, VoterTurnoutPercent FROM elections_results GROUP BY Province"); //retrieve info from the database
 
             while (resultSet.next())
             {
+            ElectionResult elecRes = new ElectionResult(
+                    resultSet.getString("Province"),
+                    resultSet.getDouble("VoterTurnoutPercent")
+            );
 
+                er.add(elecRes);
             }
-
-
-
         }catch (Exception e)
         {
             e.printStackTrace();

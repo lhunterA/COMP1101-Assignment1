@@ -12,9 +12,11 @@ public class Main
         try {
             ArrayList<ElectionResult> elecResults = DBUtility.getAllElectionResults();
             System.out.printf(elecResults.toString());
+
             System.out.printf("%n %n");
-           // ArrayList<ElectionResult> er = DBUtility.getVoterTurnoutByProvince();
-            System.out.printf("Hello");
+
+            ArrayList<ElectionResult> er = DBUtility.getVoterTurnoutByProvince();
+            System.out.printf(er.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
