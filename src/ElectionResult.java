@@ -2,7 +2,8 @@
  * The model class for the object I will retrieve from my database.
  * Will return all information/ columns from the table elections_results.sql attached to the project
  * Each Object will be for every MP elected in the 2019 Canadian Federal Election
- * Version: 1.0 = Making a base Class and constructor for retrieving the rows of data.
+ *
+ * ADD VALIDATION FOR THE ELECTION RESULT LATER
  */
 
 public class ElectionResult
