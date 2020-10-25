@@ -32,8 +32,8 @@ public class DBUtility
            while (resultSet.next())
            {
                ElectionResult elecResults = new ElectionResult(
-                       resultSet.getInt("ID"),
-                       resultSet.getString("Province"),
+                       resultSet.getInt("ID"),                      //match the column names from the db
+                       resultSet.getString("Province"),             //not the model
                        resultSet.getString("ElectoralDistrictName"),
                        resultSet.getDouble("ElectoralDistrictNum"),
                        resultSet.getDouble("Population"),
@@ -48,7 +48,7 @@ public class DBUtility
                        resultSet.getString("ElectedCandidate")
 
                );
-               er.add(elecResults); //add to the Array list that will diplay
+               er.add(elecResults); //add to the Array list that will display
            }
 
        } catch (Exception e)
