@@ -7,6 +7,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TableController implements Initializable
@@ -81,10 +83,23 @@ public class TableController implements Initializable
         vBallotNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("validBallots"));
         vBallotPercColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("percentageValidBallots"));
         rBallotNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("rejectedBallots"));
-        rBallotPercColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("percentageRejectedBallots"));
+        rBallotPercColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("percentageRejectBallots"));
         totalBallotColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("totalBallotsCast"));
         voterTurnoutColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("voterTurnoutPercent"));
         electedCandidateColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, String>("electedCandidate"));
+
+
+        //grab the data from the table, wrap in try/catch to avoid a SQL compile error
+        try
+        {
+            ArrayList<ElectionResult> electionResults = DBUtility.getAllElectionResults();
+            electionTableView.getItems().addAll(electionResults);
+        }
+        catch (SQLException throwables)
+        {
+            throwables.printStackTrace();
+        }
+
 
     }
 
