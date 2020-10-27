@@ -92,7 +92,9 @@ public class ElectionResult
         return province;
     }
 
-    public void setProvince(String province) {
+    public void setProvince(String province)
+    {
+
         this.province = province;
     }
 
@@ -109,7 +111,11 @@ public class ElectionResult
     }
 
     public void setElectoralDistrictNum(int electoralDistrictNum) {
-        this.electoralDistrictNum = (int)electoralDistrictNum;
+        if (electoralDistrictNum >=10001 && electoralDistrictNum <=62001) //The lowest and highest district number
+            this.electoralDistrictNum = electoralDistrictNum;
+        else
+            throw new IllegalArgumentException("The Electoral Distric Number must be between 10001 - 62001");
+
     }
 
     public int getPopulation() {
@@ -117,7 +123,10 @@ public class ElectionResult
     }
 
     public void setPopulation(int population) {
-        this.population = population;
+        if (population >=20000 && population <=200000) //The lowest and highest population range
+            this.population = population;
+        else
+            throw new IllegalArgumentException("The Population can't be less than 20,000 or more than 200,000 people");
     }
 
     public int getElectors() {
@@ -125,7 +134,10 @@ public class ElectionResult
     }
 
     public void setElectors(int electors) {
-        this.electors = electors;
+        if (!(electors >=20000 && electors <population)) //if outside of the range of min and max population
+            throw new IllegalArgumentException("There must be at least 20,000 electors and max less than the population");
+        else
+            this.electors = electors;
     }
 
     public int getNumberOfPollingStations() {
@@ -133,7 +145,10 @@ public class ElectionResult
     }
 
     public void setNumberOfPollingStations(int numberOfPollingStations) {
-        this.numberOfPollingStations = numberOfPollingStations;
+        if (numberOfPollingStations >=50 && numberOfPollingStations <=400) //The lowest and highest population range
+            this.numberOfPollingStations = numberOfPollingStations;
+        else
+            throw new IllegalArgumentException("There must be at least 50 polling station, and no more than 400");
     }
 
     public int getValidBallots() {
@@ -141,7 +156,10 @@ public class ElectionResult
     }
 
     public void setValidBallots(int validBallots) {
-        this.validBallots = validBallots;
+        if(validBallots >= (population/4) && validBallots < population) //at least 1/4 of potential voters must be valid and cannot exceed population amount
+            this.validBallots = validBallots;
+        else
+            throw new IllegalArgumentException("There cannot be more ballots than people, and one must be at least there");
     }
 
     public double getPercentageValidBallots() {
@@ -149,7 +167,10 @@ public class ElectionResult
     }
 
     public void setPercentageValidBallots(double percentageValidBallots) {
-        this.percentageValidBallots = percentageValidBallots;
+        if( percentageValidBallots >= 95 && percentageValidBallots <= 100) //if at least 90% of votes are valid, and doesn't exceed 100%
+            this.percentageValidBallots = percentageValidBallots;
+        else
+            throw new IllegalArgumentException("There range of valid ballots casted must be between 80-100%");
     }
 
     public int getRejectedBallots() {
@@ -157,7 +178,10 @@ public class ElectionResult
     }
 
     public void setRejectedBallots(int rejectedBallots) {
-        this.rejectedBallots = rejectedBallots;
+        if( rejectedBallots >= 50 && rejectedBallots <= 5000) //a suitable range of potential rejected ballots
+            this.rejectedBallots = rejectedBallots;
+        else
+            throw new IllegalArgumentException("There range of reject ballots casted must be between 50-5000");
     }
 
     public double getPercentageRejectBallots() {
@@ -173,6 +197,7 @@ public class ElectionResult
     }
 
     public void setTotalBallotsCast(int totalBallotsCast) {
+        if (validBallots + rejectedBallots == totalBallotsCast)
         this.totalBallotsCast = totalBallotsCast;
     }
 
