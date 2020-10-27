@@ -88,7 +88,6 @@ public class TableController implements Initializable
         voterTurnoutColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("voterTurnoutPercent"));
         electedCandidateColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, String>("electedCandidate"));
 
-
         //grab the data from the table, wrap in try/catch to avoid a SQL compile error
         try
         {
@@ -99,9 +98,17 @@ public class TableController implements Initializable
         {
             throwables.printStackTrace();
         }
-
-
     }
 
-
+    /**
+     * When the button on the TableView is clicked change to the ProvinceVoterTurnoutView
+     * Uses the class SceneChanger method changeScene() which takes 2 arguments, the fxml file that wants to be viewed
+     * and the new title for the new scene.
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    private void viewBarChart(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "ProvinceVoterTurnoutView.fxml", "2019 Canadian Election"); //on the event go to the view chosen, and title
+    }
 }

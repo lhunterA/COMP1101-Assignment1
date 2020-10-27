@@ -78,10 +78,17 @@ public class DBUtility
 
 
 
-    //Method to obtain province and avg voter turnout across the province to see which province doesnt vote as much as the others
-    //changed from ArrayList to XYChart.Series
-    public static XYChart.Series<String, Number> getVoterTurnoutByProvince () throws SQLException {
 
+
+    /**
+     *  Method to obtain province and avg voter turnout across the province to see which province doesnt vote as much as the others.
+     *
+     * @return series - a XYChart.Series (an ObservableList) that hold all data of the chart
+     * @throws SQLException
+     */
+    public static XYChart.Series<String, Number> getVoterTurnoutByProvince () throws SQLException {
+        //changed from ArrayList to XYChart.Series
+        //Needed the output list to be the same so changed from ArrayList to XYChart Series (ObservalbleList)
         // List<ElectionResult> er = new ArrayList<>();
 
         Connection connection = null;
@@ -95,20 +102,28 @@ public class DBUtility
 
             resultSet = statement.executeQuery("SELECT Province, VoterTurnoutPercent FROM elections_results GROUP BY Province"); //retrieve info from the database
 
-            //new
-            //XYChart.Series<X,Y> is a class
-            //variable called series
-            //calling the empty constructor or Series
+            /*
+            XYChart.Series<X,Y> is a class
+            variable called series
+            calling the empty constructor of Series
+            */
             series = new XYChart.Series<>();
 
-            while (resultSet.next()) {
-                //ElectionResult elecRes = new ElectionResult(
+            while (resultSet.next())
+            {
                 series.getData().add(new XYChart.Data<>(resultSet.getString("Province"), resultSet.getDouble("VoterTurnoutPercent")));
-                //pass the data to a series which is an
+                //XYChart.Data is to add one new piece of data to the chart
+                //series is a collection of the data.
+                //so you are adding one data (one column of the chart) to the series to output to the chart.
+                //passing the result set to the new series
+
+
+
+                //Old code that no longer works:
+                //ElectionResult elecRes = new ElectionResult(
                 //resultSet.getString("Province"),
                 //resultSet.getDouble("VoterTurnoutPercent")
                 //);
-
                 //er.add(elecRes);
             }
         } catch (Exception e) {
@@ -123,7 +138,7 @@ public class DBUtility
             if (resultSet != null) {
                 resultSet.close();
             }
-            return series;
+            return series; //changed from old er (ArrayList) to new XYChart series which also hold a collection of data
         }
     }
 

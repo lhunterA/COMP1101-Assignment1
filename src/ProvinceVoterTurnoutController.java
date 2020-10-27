@@ -1,4 +1,5 @@
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -6,6 +7,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -55,18 +57,25 @@ public class ProvinceVoterTurnoutController implements Initializable {
 
         //provinceXAxis.setCategories();
 
-
         XYChart.Series<String, Number> electionResults = null;
         try {
             electionResults = DBUtility.getVoterTurnoutByProvince();
-            electionBarChart.getData().addAll(electionResults);//adding the array of data to the chart
+            electionBarChart.getData().addAll(electionResults);//adding the array of data to the chart using getData.
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
 
 
-
-
-
+    /**
+     * When the button on the ProvinceVoterTurnoutView is clicked change to the TableView
+     * Uses the class SceneChanger method changeScene() which takes 2 arguments, the fxml file that wants to be viewed
+     * and the new title for the new scene.
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    private void viewBarChart(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "TableView.fxml", "2019 Canadian Election"); //on the event go to the view chosen, and title
     }
 }
