@@ -35,7 +35,7 @@ public class Main extends Application
          Scene scene = new Scene(root);
          primaryStage.setScene(scene);
          primaryStage.setTitle("2019 Canadian Election");
-         primaryStage.getIcons().add(new Image("icon.png"));
+         primaryStage.getIcons().add(new Image("Images/icon.png"));
          primaryStage.show();
 
     }

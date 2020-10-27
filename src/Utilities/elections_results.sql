@@ -24,14 +24,13 @@ TotalBallotsCast int,
 VoterTurnoutPercent DOUBLE,
 ElectedCandidate VARCHAR(200)
 );
-
-
+/*
 -- Query to find the voter avg by province
 
-select substring_index2(Province, '/', 1), avg(VoterTurnoutPercent)
+select substring_index(Province, '/', 1), avg(VoterTurnoutPercent)
 From elections_results
-WHERE CHARINDEX('/', Province) > 0
 group by province;
+*/
 
 
 

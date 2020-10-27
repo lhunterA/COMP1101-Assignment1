@@ -49,24 +49,16 @@ public class ProvinceVoterTurnoutController implements Initializable {
          */
         provinceXAxis.setLabel("Provinces");
         avgYAxis.setLabel("Percentages");
-        electionBarChart.setTitle("2019 Canadian Election Voter Turnout");
+        //electionBarChart.setTitle("2019 Canadian Election Voter Turnout");
 
         XYChart.Series<String, Number> series = new XYChart.Series<>(); //imported the XYChart class which is a parent class of BarChart takes a String and Number
-        series.setName("VoterTurnout by Percent");
-        /*
-        Dummy Data that works from Oracle
-        series.getData().add(new XYChart.Data("austria", 25601.34));
-        series.getData().add(new XYChart.Data("brazil", 20148.82));
-        series.getData().add(new XYChart.Data("france", 10000));
-        series.getData().add(new XYChart.Data("italy", 35407.15));
-        series.getData().add(new XYChart.Data("usa", 12000));
-        */
-
-        //provinceXAxis.setCategories();
+       // series.setName("VoterTurnout by Percent");
 
         XYChart.Series<String, Number> electionResults = null;
+
         try {
             electionResults = DBUtility.getVoterTurnoutByProvince();
+            electionResults.setName("Voter Turnout by Percent"); //adding a legend to the bottom of the chart
             electionBarChart.getData().addAll(electionResults);//adding the array of data to the chart using getData instead of addItems();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
