@@ -30,31 +30,31 @@ public class TableController implements Initializable
     private TableColumn<ElectionResult, String> dNameColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> dNumColumn;
+    private TableColumn<ElectionResult, Integer> dNumColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> populationColumn;
+    private TableColumn<ElectionResult, Integer> populationColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> electorsColumn;
+    private TableColumn<ElectionResult, Integer> electorsColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> pollStationColumn;
+    private TableColumn<ElectionResult, Integer> pollStationColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> vBallotNumColumn;
+    private TableColumn<ElectionResult, Integer> vBallotNumColumn;
 
     @FXML
     private TableColumn<ElectionResult, Double> vBallotPercColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> rBallotNumColumn;
+    private TableColumn<ElectionResult, Integer> rBallotNumColumn;
 
     @FXML
     private TableColumn<ElectionResult, Double> rBallotPercColumn;
 
     @FXML
-    private TableColumn<ElectionResult, Double> totalBallotColumn;
+    private TableColumn<ElectionResult, Integer> totalBallotColumn;
 
     @FXML
     private TableColumn<ElectionResult, Double> voterTurnoutColumn;
@@ -76,15 +76,15 @@ public class TableController implements Initializable
         IDColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("id"));
         provinceColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, String>("province"));
         dNameColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, String>("electoralDistrictName"));
-        dNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("electoralDistrictNum"));
-        populationColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("population"));
-        electorsColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("electors"));
-        pollStationColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("numberOfPollingStations"));
-        vBallotNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("validBallots"));
+        dNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("electoralDistrictNum"));
+        populationColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("population"));
+        electorsColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("electors"));
+        pollStationColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("numberOfPollingStations"));
+        vBallotNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("validBallots"));
         vBallotPercColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("percentageValidBallots"));
-        rBallotNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("rejectedBallots"));
+        rBallotNumColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("rejectedBallots"));
         rBallotPercColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("percentageRejectBallots"));
-        totalBallotColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("totalBallotsCast"));
+        totalBallotColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Integer>("totalBallotsCast"));
         voterTurnoutColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, Double>("voterTurnoutPercent"));
         electedCandidateColumn.setCellValueFactory(new PropertyValueFactory<ElectionResult, String>("electedCandidate"));
 

@@ -60,7 +60,7 @@ public class ProvinceVoterTurnoutController implements Initializable {
         XYChart.Series<String, Number> electionResults = null;
         try {
             electionResults = DBUtility.getVoterTurnoutByProvince();
-            electionBarChart.getData().addAll(electionResults);//adding the array of data to the chart using getData.
+            electionBarChart.getData().addAll(electionResults);//adding the array of data to the chart using getData instead of addItems();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

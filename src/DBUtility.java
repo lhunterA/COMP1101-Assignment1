@@ -37,15 +37,15 @@ public class DBUtility
                        resultSet.getInt("ID"),                      //match the column names from the db
                        resultSet.getString("Province"),             //not the model
                        resultSet.getString("ElectoralDistrictName"),
-                       resultSet.getDouble("ElectoralDistrictNum"),
-                       resultSet.getDouble("Population"),
-                       resultSet.getDouble("Electors"),
-                       resultSet.getDouble("NumberOfPollingStations"),
-                       resultSet.getDouble("ValidBallots"),
+                       resultSet.getInt("ElectoralDistrictNum"),
+                       resultSet.getInt("Population"),
+                       resultSet.getInt("Electors"),
+                       resultSet.getInt("NumberOfPollingStations"),
+                       resultSet.getInt("ValidBallots"),
                        resultSet.getDouble("PercentageValidBallots"),
-                       resultSet.getDouble("RejectedBallots"),
+                       resultSet.getInt("RejectedBallots"),
                        resultSet.getDouble("PercentageRejectBallots"),
-                       resultSet.getDouble("TotalBallotsCast"),
+                       resultSet.getInt("TotalBallotsCast"),
                        resultSet.getDouble("VoterTurnoutPercent"),
                        resultSet.getString("ElectedCandidate")
 
@@ -82,14 +82,14 @@ public class DBUtility
 
     /**
      *  Method to obtain province and avg voter turnout across the province to see which province doesnt vote as much as the others.
+     *  Needed the output list to be the same as the XYChart class so changed from ArrayList to XYChart Series
+     *  This video was extremely helpful when it came to syntax for line 112: https://www.youtube.com/watch?v=ckHkfT0RjeE&t=986s&ab_channel=DanMlayah
+     *  specifically "series.getData().add(new XYChart.Data<>" where I was not adding "new XYChart.Data<>" before the result set
      *
      * @return series - a XYChart.Series (an ObservableList) that hold all data of the chart
      * @throws SQLException
      */
     public static XYChart.Series<String, Number> getVoterTurnoutByProvince () throws SQLException {
-        //changed from ArrayList to XYChart.Series
-        //Needed the output list to be the same so changed from ArrayList to XYChart Series (ObservalbleList)
-        // List<ElectionResult> er = new ArrayList<>();
 
         Connection connection = null;
         Statement statement = null;
@@ -117,14 +117,6 @@ public class DBUtility
                 //so you are adding one data (one column of the chart) to the series to output to the chart.
                 //passing the result set to the new series
 
-
-
-                //Old code that no longer works:
-                //ElectionResult elecRes = new ElectionResult(
-                //resultSet.getString("Province"),
-                //resultSet.getDouble("VoterTurnoutPercent")
-                //);
-                //er.add(elecRes);
             }
         } catch (Exception e) {
             e.printStackTrace();

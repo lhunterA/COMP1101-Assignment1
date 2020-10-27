@@ -14,15 +14,15 @@ public class ElectionResult
     private int id;
     private String province;
     private String electoralDistrictName;
-    private double electoralDistrictNum;
-    private double population;
-    private double electors;
-    private double numberOfPollingStations;
-    private double validBallots;
+    private int electoralDistrictNum;
+    private int population;
+    private int electors;
+    private int numberOfPollingStations;
+    private int validBallots;
     private double percentageValidBallots;
-    private double rejectedBallots;
+    private int rejectedBallots;
     private double percentageRejectBallots;
-    private double totalBallotsCast;
+    private int totalBallotsCast;
     private double voterTurnoutPercent;
     private String electedCandidate;
 
@@ -45,10 +45,10 @@ public class ElectionResult
      * @param voterTurnoutPercent
      * @param electedCandidate
      */
-    public ElectionResult(int id, String province, String electoralDistrictName, double electoralDistrictNum,
-                          double population, double electors, double numberOfPollingStations, double validBallots,
-                          double percentageValidBallots, double rejectedBallots, double percentageRejectBallots,
-                          double totalBallotsCast, double voterTurnoutPercent, String electedCandidate)
+    public ElectionResult(int id, String province, String electoralDistrictName, int electoralDistrictNum,
+                          int population, int electors, int numberOfPollingStations, int validBallots,
+                          double percentageValidBallots, int rejectedBallots, double percentageRejectBallots,
+                          int totalBallotsCast, double voterTurnoutPercent, String electedCandidate)
     {
         setId (id);
         setProvince (province);
@@ -76,6 +76,7 @@ public class ElectionResult
         setProvince (province);
         setVoterTurnoutPercent (voterTurnoutPercent);
     }
+
 
     public int getId() {
         return id;
@@ -105,39 +106,39 @@ public class ElectionResult
         return electoralDistrictNum;
     }
 
-    public void setElectoralDistrictNum(double electoralDistrictNum) {
+    public void setElectoralDistrictNum(int electoralDistrictNum) {
         this.electoralDistrictNum = electoralDistrictNum;
     }
 
-    public double getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(double population) {
+    public void setPopulation(int population) {
         this.population = population;
     }
 
-    public double getElectors() {
+    public int getElectors() {
         return electors;
     }
 
-    public void setElectors(double electors) {
+    public void setElectors(int electors) {
         this.electors = electors;
     }
 
-    public double getNumberOfPollingStations() {
+    public int getNumberOfPollingStations() {
         return numberOfPollingStations;
     }
 
-    public void setNumberOfPollingStations(double numberOfPollingStations) {
+    public void setNumberOfPollingStations(int numberOfPollingStations) {
         this.numberOfPollingStations = numberOfPollingStations;
     }
 
-    public double getValidBallots() {
+    public int getValidBallots() {
         return validBallots;
     }
 
-    public void setValidBallots(double validBallots) {
+    public void setValidBallots(int validBallots) {
         this.validBallots = validBallots;
     }
 
@@ -149,11 +150,11 @@ public class ElectionResult
         this.percentageValidBallots = percentageValidBallots;
     }
 
-    public double getRejectedBallots() {
+    public int getRejectedBallots() {
         return rejectedBallots;
     }
 
-    public void setRejectedBallots(double rejectedBallots) {
+    public void setRejectedBallots(int rejectedBallots) {
         this.rejectedBallots = rejectedBallots;
     }
 
@@ -165,11 +166,11 @@ public class ElectionResult
         this.percentageRejectBallots = percentageRejectBallots;
     }
 
-    public double getTotalBallotsCast() {
+    public int getTotalBallotsCast() {
         return totalBallotsCast;
     }
 
-    public void setTotalBallotsCast(double totalBallotsCast) {
+    public void setTotalBallotsCast(int totalBallotsCast) {
         this.totalBallotsCast = totalBallotsCast;
     }
 
@@ -191,9 +192,9 @@ public class ElectionResult
 
 
 
-    public String toString()
+    /*public String toString()
     {
         return String.format("Results: %s %.2f %n", province, voterTurnoutPercent);
     }
-
+    */
 }
