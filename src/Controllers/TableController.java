@@ -1,3 +1,13 @@
+package Controllers;
+
+/*
+ had to import the classes of the project so that it ran
+ */
+import Models.ElectionResult;
+import Utilities.DBUtility;
+import Utilities.SceneChanger;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -102,13 +112,13 @@ public class TableController implements Initializable
 
     /**
      * When the button on the TableView is clicked change to the ProvinceVoterTurnoutView
-     * Uses the class SceneChanger method changeScene() which takes 2 arguments, the fxml file that wants to be viewed
+     * Uses the class Utilities.SceneChanger method changeScene() which takes 2 arguments, the fxml file that wants to be viewed
      * and the new title for the new scene.
      * @param event
      * @throws IOException
      */
     @FXML
     private void viewBarChart(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "ProvinceVoterTurnoutView.fxml", "2019 Canadian Election"); //on the event go to the view chosen, and title
+        SceneChanger.changeScene(event, "../Views/ProvinceVoterTurnoutView.fxml", "2019 Canadian Election"); //on the event go to the view chosen, and title
     }
 }

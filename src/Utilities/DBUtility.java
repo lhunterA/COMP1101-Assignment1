@@ -1,3 +1,6 @@
+package Utilities;
+
+import Models.ElectionResult;
 import javafx.scene.chart.XYChart;
 
 import java.sql.*;
@@ -76,10 +79,6 @@ public class DBUtility
     }
 
 
-
-
-
-
     /**
      *  Method to obtain province and avg voter turnout across the province to see which province doesnt vote as much as the others.
      *  Needed the output list to be the same as the XYChart class so changed from ArrayList to XYChart Series
@@ -90,17 +89,18 @@ public class DBUtility
      * @throws SQLException
      */
     public static XYChart.Series<String, Number> getVoterTurnoutByProvince () throws SQLException {
+        XYChart.Series<String, Number> series = null;
 
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
-        XYChart.Series<String, Number> series = null;
+
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/F20COMP1101", user, pass);
 
             statement = connection.createStatement();
 
-            resultSet = statement.executeQuery("SELECT Province, VoterTurnoutPercent FROM elections_results GROUP BY Province"); //retrieve info from the database
+            resultSet = statement.executeQuery("SELECT substring_index(Province, '/', 1) as Province, VoterTurnoutPercent FROM elections_results GROUP BY Province"); //retrieve info from the database
 
             /*
             XYChart.Series<X,Y> is a class
@@ -111,7 +111,8 @@ public class DBUtility
 
             while (resultSet.next())
             {
-                series.getData().add(new XYChart.Data<>(resultSet.getString("Province"), resultSet.getDouble("VoterTurnoutPercent")));
+                series.getData().add(new XYChart.Data<>(resultSet.getString("Province"),
+                                                        resultSet.getDouble("VoterTurnoutPercent")));
                 //XYChart.Data is to add one new piece of data to the chart
                 //series is a collection of the data.
                 //so you are adding one data (one column of the chart) to the series to output to the chart.

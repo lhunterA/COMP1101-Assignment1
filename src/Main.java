@@ -4,9 +4,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 public class Main extends Application
 {
     public static void main(String[] args)
@@ -16,12 +13,12 @@ public class Main extends Application
         /*
         //See if it will return my election result info. Lab 05
         try {
-            ArrayList<ElectionResult> elecResults = DBUtility.getAllElectionResults();
+            ArrayList<Models.ElectionResult> elecResults = Utilities.DBUtility.getAllElectionResults();
             System.out.printf(elecResults.toString());
 
             System.out.printf("%n %n");
 
-            ArrayList<ElectionResult> er = DBUtility.getVoterTurnoutByProvince();
+            ArrayList<Models.ElectionResult> er = Utilities.DBUtility.getVoterTurnoutByProvince();
             System.out.printf(er.toString());
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,7 +30,7 @@ public class Main extends Application
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-         Parent root = FXMLLoader.load(getClass().getResource("ProvinceVoterTurnoutView.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("Views/ProvinceVoterTurnoutView.fxml"));
          Scene scene = new Scene(root);
          primaryStage.setScene(scene);
          primaryStage.setTitle("2019 Canadian Election");

@@ -26,9 +26,14 @@ ElectedCandidate VARCHAR(200)
 );
 
 
-select Province, avg(VoterTurnoutPercent)
+-- Query to find the voter avg by province
+
+select substring_index2(Province, '/', 1), avg(VoterTurnoutPercent)
 From elections_results
+WHERE CHARINDEX('/', Province) > 0
 group by province;
+
+
 
 
 /* INSERT QUERY NO: 1 */

@@ -1,4 +1,12 @@
-import javafx.collections.FXCollections;
+package Controllers;
+
+/*
+Had to import the classes so that the controller had access to the methods.
+ */
+import Utilities.DBUtility;
+import Utilities.SceneChanger;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +18,6 @@ import javafx.scene.chart.XYChart;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ProvinceVoterTurnoutController implements Initializable {
@@ -22,10 +29,10 @@ public class ProvinceVoterTurnoutController implements Initializable {
     */
 
     @FXML
-    private CategoryAxis provinceXAxis = new CategoryAxis(); //add the = new CategoryAxis();
+    private CategoryAxis provinceXAxis = new CategoryAxis(); //add the = new CategoryAxis(); by javadoc recommendations
 
     @FXML
-    private NumberAxis avgYAxis = new NumberAxis(); //add the = new NumberAxis();
+    private NumberAxis avgYAxis = new NumberAxis(); //add the = new NumberAxis(); by javadoc recommendations
 
     /*
     Moved this below to allow the Axis variables to not red out.
@@ -47,7 +54,7 @@ public class ProvinceVoterTurnoutController implements Initializable {
         XYChart.Series<String, Number> series = new XYChart.Series<>(); //imported the XYChart class which is a parent class of BarChart takes a String and Number
         series.setName("VoterTurnout by Percent");
         /*
-        Dummy Data that works
+        Dummy Data that works from Oracle
         series.getData().add(new XYChart.Data("austria", 25601.34));
         series.getData().add(new XYChart.Data("brazil", 20148.82));
         series.getData().add(new XYChart.Data("france", 10000));
@@ -69,13 +76,13 @@ public class ProvinceVoterTurnoutController implements Initializable {
 
     /**
      * When the button on the ProvinceVoterTurnoutView is clicked change to the TableView
-     * Uses the class SceneChanger method changeScene() which takes 2 arguments, the fxml file that wants to be viewed
+     * Uses the class Utilities.SceneChanger method changeScene() which takes 2 arguments, the fxml file that wants to be viewed
      * and the new title for the new scene.
      * @param event
      * @throws IOException
      */
     @FXML
     private void viewBarChart(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "TableView.fxml", "2019 Canadian Election"); //on the event go to the view chosen, and title
+        SceneChanger.changeScene(event, "../Views/TableView.fxml", "2019 Canadian Election"); //on the event go to the view chosen, and title
     }
 }

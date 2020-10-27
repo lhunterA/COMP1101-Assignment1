@@ -1,3 +1,5 @@
+package Models;
+
 /**
  * The model class for the object I will retrieve from my database.
  * Will return all information/ columns from the table elections_results.sql attached to the project
@@ -107,7 +109,7 @@ public class ElectionResult
     }
 
     public void setElectoralDistrictNum(int electoralDistrictNum) {
-        this.electoralDistrictNum = electoralDistrictNum;
+        this.electoralDistrictNum = (int)electoralDistrictNum;
     }
 
     public int getPopulation() {

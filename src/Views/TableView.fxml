@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="751.0" prefWidth="1549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TableController">
+<AnchorPane prefHeight="751.0" prefWidth="1549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TableController">
    <children>
       <Label layoutX="648.0" layoutY="32.0" text="2019 Elections Canada Results " />
       <TableView fx:id="electionTableView" layoutX="3.0" layoutY="68.0" prefHeight="638.0" prefWidth="1537.0">
