@@ -1,3 +1,5 @@
+import javafx.scene.chart.XYChart;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -77,49 +79,51 @@ public class DBUtility
 
 
     //Method to obtain province and avg voter turnout across the province to see which province doesnt vote as much as the others
-    public static ArrayList<ElectionResult> getVoterTurnoutByProvince () throws SQLException {
+    //changed from ArrayList to XYChart.Series
+    public static XYChart.Series<String, Number> getVoterTurnoutByProvince () throws SQLException {
 
-        ArrayList<ElectionResult> er = new ArrayList<>();
+        // List<ElectionResult> er = new ArrayList<>();
 
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
-        try
-        {
+        XYChart.Series<String, Number> series = null;
+        try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/F20COMP1101", user, pass);
 
             statement = connection.createStatement();
 
             resultSet = statement.executeQuery("SELECT Province, VoterTurnoutPercent FROM elections_results GROUP BY Province"); //retrieve info from the database
 
-            while (resultSet.next())
-            {
-            ElectionResult elecRes = new ElectionResult(
-                    resultSet.getString("Province"),
-                    resultSet.getDouble("VoterTurnoutPercent")
-            );
+            //new
+            //XYChart.Series<X,Y> is a class
+            //variable called series
+            //calling the empty constructor or Series
+            series = new XYChart.Series<>();
 
-                er.add(elecRes);
+            while (resultSet.next()) {
+                //ElectionResult elecRes = new ElectionResult(
+                series.getData().add(new XYChart.Data<>(resultSet.getString("Province"), resultSet.getDouble("VoterTurnoutPercent")));
+                //pass the data to a series which is an
+                //resultSet.getString("Province"),
+                //resultSet.getDouble("VoterTurnoutPercent")
+                //);
+
+                //er.add(elecRes);
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            if (connection != null)
-            {
+        } finally {
+            if (connection != null) {
                 connection.close(); //if the connection is not already closed then close it
             }
-            if (statement != null)
-            {
+            if (statement != null) {
                 statement.close();
             }
-            if (resultSet != null)
-            {
+            if (resultSet != null) {
                 resultSet.close();
             }
-            return er;
+            return series;
         }
     }
 
