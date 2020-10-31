@@ -1,0 +1,29 @@
+.root{
+    -fx-background-color: #A9A9A9;
+}
+
+.label{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-radius: 30px;
+}
+
+
+.chart-legend-item-symbol{
+    -fx-background-radius: 0;
+}
+
+.chart-plot-background {
+    -fx-background-color: #35BAF6;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill: #99BCFD;
+}
+
+.chart-bar{
+    -fx-background-color: #D3D3D3;
+}

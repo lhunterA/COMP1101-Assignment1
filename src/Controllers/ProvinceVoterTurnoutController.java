@@ -44,15 +44,8 @@ public class ProvinceVoterTurnoutController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        /*
-        Below code is an example from Java Docs from Oracle: https://docs.oracle.com/javafx/2/charts/bar-chart.htm
-         */
         provinceXAxis.setLabel("Provinces");
         avgYAxis.setLabel("Percentages");
-        //electionBarChart.setTitle("2019 Canadian Election Voter Turnout");
-
-        XYChart.Series<String, Number> series = new XYChart.Series<>(); //imported the XYChart class which is a parent class of BarChart takes a String and Number
-       // series.setName("VoterTurnout by Percent");
 
         XYChart.Series<String, Number> electionResults = null;
 

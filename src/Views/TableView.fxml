@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="751.0" prefWidth="1549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TableController">
+<AnchorPane prefHeight="751.0" prefWidth="1549.0" stylesheets="@../styleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TableController">
    <children>
-      <Label layoutX="648.0" layoutY="32.0" text="2019 Elections Canada Results " />
-      <TableView fx:id="electionTableView" layoutX="3.0" layoutY="68.0" prefHeight="638.0" prefWidth="1537.0">
-        <columns>
-          <TableColumn fx:id="IDColumn" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="provinceColumn" prefWidth="100.0" text="Province" />
-            <TableColumn fx:id="dNameColumn" prefWidth="125.0" text="Distrinct Name" />
-            <TableColumn fx:id="dNumColumn" minWidth="0.0" prefWidth="136.0" text="District Number" />
-            <TableColumn fx:id="populationColumn" prefWidth="112.0" text="Population" />
-            <TableColumn fx:id="electorsColumn" minWidth="0.0" prefWidth="72.0" text="Electors" />
-            <TableColumn fx:id="pollStationColumn" prefWidth="111.0" text="PollingStation" />
-            <TableColumn fx:id="vBallotNumColumn" prefWidth="108.0" text="ValidBallots#" />
-            <TableColumn fx:id="vBallotPercColumn" prefWidth="105.0" text="ValidBallot%" />
-            <TableColumn fx:id="rBallotNumColumn" prefWidth="132.0" text="RejectBallot#" />
-            <TableColumn fx:id="rBallotPercColumn" prefWidth="111.0" text="RejectBallot%" />
-            <TableColumn fx:id="totalBallotColumn" prefWidth="108.0" text="TotalBallots" />
-            <TableColumn fx:id="voterTurnoutColumn" prefWidth="105.0" text="VoterTurnout%" />
-            <TableColumn fx:id="electedCandidateColumn" prefWidth="132.0" text="ElectedCandidate" />
-        </columns>
-      </TableView>
-      <Button layoutX="724.0" layoutY="706.0" mnemonicParsing="false" onAction="#viewBarChart" text="Bar Chart View" />
+      <VBox alignment="CENTER" prefHeight="751.0" prefWidth="1549.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="2019 General Election Data " />
+            <TableView fx:id="electionTableView" prefHeight="630.0" prefWidth="1480.0" stylesheets="@../styleSheet.css">
+              <columns>
+                <TableColumn fx:id="IDColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="provinceColumn" prefWidth="100.0" text="Province" />
+                  <TableColumn fx:id="dNameColumn" prefWidth="125.0" text="Distrinct Name" />
+                  <TableColumn fx:id="dNumColumn" minWidth="0.0" prefWidth="136.0" text="District Number" />
+                  <TableColumn fx:id="populationColumn" prefWidth="112.0" text="Population" />
+                  <TableColumn fx:id="electorsColumn" minWidth="0.0" prefWidth="72.0" text="Electors" />
+                  <TableColumn fx:id="pollStationColumn" prefWidth="111.0" text="PollingStation" />
+                  <TableColumn fx:id="vBallotNumColumn" prefWidth="108.0" text="ValidBallots#" />
+                  <TableColumn fx:id="vBallotPercColumn" prefWidth="105.0" text="ValidBallot%" />
+                  <TableColumn fx:id="rBallotNumColumn" prefWidth="132.0" text="RejectBallot#" />
+                  <TableColumn fx:id="rBallotPercColumn" prefWidth="111.0" text="RejectBallot%" />
+                  <TableColumn fx:id="totalBallotColumn" prefWidth="108.0" text="TotalBallots" />
+                  <TableColumn fx:id="voterTurnoutColumn" prefWidth="105.0" text="VoterTurnout%" />
+                  <TableColumn fx:id="electedCandidateColumn" prefWidth="132.0" text="ElectedCandidate" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TableView>
+            <Button mnemonicParsing="false" onAction="#viewBarChart" text="Bar Chart View" />
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>

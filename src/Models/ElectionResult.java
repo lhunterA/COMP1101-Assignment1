@@ -85,17 +85,19 @@ public class ElectionResult
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id>0)
+            this.id = id;
+        else
+            throw new IllegalArgumentException("There must be a valid Id per row");
     }
 
     public String getProvince() {
-        return province;
+       return province;
     }
 
     public void setProvince(String province)
     {
-
-        this.province = province;
+        this.province= province;
     }
 
     public String getElectoralDistrictName() {
