@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: #A9A9A9;
+    -fx-background-color: #BDBDBD;
 }
 
 .label{
@@ -17,13 +17,14 @@
 }
 
 .chart-plot-background {
-    -fx-background-color: #35BAF6;
+    -fx-background-color: #C5CAE9;
 }
 
 .chart-alternative-row-fill {
-    -fx-fill: #99BCFD;
+    -fx-fill: #FFFFFF;
 }
 
 .chart-bar{
-    -fx-background-color: #D3D3D3;
+    -fx-background-color: #1a237e;
 }
+

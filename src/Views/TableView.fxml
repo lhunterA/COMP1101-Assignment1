@@ -37,7 +37,7 @@
             <Button mnemonicParsing="false" onAction="#viewBarChart" text="Bar Chart View" />
          </children>
          <padding>
-            <Insets left="30.0" right="30.0" />
+            <Insets bottom="30.0" left="30.0" right="30.0" />
          </padding>
       </VBox>
    </children>
