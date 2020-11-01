@@ -33,7 +33,7 @@ public class Main extends Application
     public void start(Stage primaryStage) throws Exception {
          Parent root = FXMLLoader.load(getClass().getResource("Views/ProvinceVoterTurnoutView.fxml"));
          Scene scene = new Scene(root);
-         scene.getStylesheets().add("styleSheet.css");
+         scene.getStylesheets().add("Utilities/styleSheet.css");
          primaryStage.setScene(scene);
          primaryStage.setTitle("2019 Canadian Election");
          primaryStage.getIcons().add(new Image("Images/icon.png"));
