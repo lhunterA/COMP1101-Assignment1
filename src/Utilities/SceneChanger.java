@@ -6,8 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+
+/**
+ *  * Lindsay Hunter
+ *  * 200425671
+ */
 
 public class SceneChanger {
 

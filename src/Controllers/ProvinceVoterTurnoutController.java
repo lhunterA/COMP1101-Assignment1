@@ -1,7 +1,8 @@
 package Controllers;
 
-/*
-Had to import the classes so that the controller had access to the methods.
+/**
+ *  * Lindsay Hunter
+ *  * 200425671
  */
 import Utilities.DBUtility;
 import Utilities.SceneChanger;

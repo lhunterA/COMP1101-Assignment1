@@ -2,9 +2,13 @@ package Utilities;
 
 import Models.ElectionResult;
 import javafx.scene.chart.XYChart;
-
 import java.sql.*;
 import java.util.ArrayList;
+
+/**
+ *  * Lindsay Hunter
+ *  * 200425671
+ */
 
 public class DBUtility
 {

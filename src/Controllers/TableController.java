@@ -1,7 +1,7 @@
 package Controllers;
-
-/*
- had to import the classes of the project so that it ran
+/**
+ *  * Lindsay Hunter
+ *  * 200425671
  */
 import Models.ElectionResult;
 import Utilities.DBUtility;
