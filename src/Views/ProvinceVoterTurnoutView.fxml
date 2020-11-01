@@ -16,7 +16,7 @@
             <Label text="2019 Voter Turnout By Province" />
             <BarChart fx:id="electionBarChart" prefHeight="644.0" prefWidth="1480.0" stylesheets="@../styleSheet.css">
               <xAxis>
-                <CategoryAxis fx:id="provinceXAxis" prefHeight="120.0" prefWidth="1428.0" side="BOTTOM" />
+                <CategoryAxis fx:id="provinceXAxis" prefHeight="120.0" prefWidth="1428.0" side="BOTTOM" styleClass=".chart-axis" />
               </xAxis>
               <yAxis>
                 <NumberAxis fx:id="avgYAxis" side="LEFT" />

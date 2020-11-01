@@ -9,6 +9,7 @@
 
 .button {
     -fx-background-radius: 30px;
+    -fx-font-weight: bold;
 }
 
 
@@ -26,5 +27,32 @@
 
 .chart-bar{
     -fx-background-color: #1a237e;
+}
+
+.table-row-cell{
+    -fx-background-color: #C5CAE9;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: #FFFFFF;
+}
+
+
+/*
+    Below CSS throws a console error:
+    WARNING: Could not resolve 'bold' while resolving lookups for '-fx-tick-label-fill' from rule '*#avgYAxis' in stylesheet.
+
+
+    but is still runs so in it goes.
+ */
+
+#provinceXAxis/* Use the fx:id to target the xaxis */
+{
+    -fx-tick-label-fill: bold;
+}
+
+#avgYAxis/* Use the fx:id to target the yaxis */
+{
+    -fx-tick-label-fill: bold;
 }
 
